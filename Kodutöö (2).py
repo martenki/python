@@ -1,7 +1,7 @@
 # 1.1. Tervitus
 # Koostada programm, mis väljastaks ekraanile teksti Tere, maailm! täpselt sellisel kujul - koma ja hüüumärgiga.
 
-print("Tere maailm!")
+# print("Tere maailm!")
 
 # 1.2. Aasta liblikas
 # Koostada programm, mille
@@ -12,10 +12,10 @@ print("Tere maailm!")
 # lause_keskosa ja liblikas (vajadusel tuleb kasutada funktsiooni, mis teisendab arvu sõneks);
 # 5. real väljastatakse muutuja lause väärtus ekraanile.
 
-aasta = 2020
-liblikas = "teelehe-mosaiikliblikas"
-Lause_keskoa = str(aasta) + ". aasta liblikas on " + liblikas + "."
-print(Lause_keskoa)
+# aasta = 2020
+# liblikas = "teelehe-mosaiikliblikas"
+# Lause_keskoa = str(aasta) + ". aasta liblikas on " + liblikas + "."
+# print(Lause_keskoa)
 
 
 # 1.3. Pilved
@@ -26,13 +26,13 @@ print(Lause_keskoa)
 # väljastab Need ei ole ülemised pilved, kui kõrgus on 6,0 km või alla selle.
 # Kasutaja peab saama sisestada pilvede kõrgust nii täisarvuna kui ka ujukomaarvuna, nt 7.5.
 
-kõrgus = float(input("sisesta pilvede aluse kõrgus (km): "))
-if kõrgus > 6:
-    print("Need on ülemised pilved, kuna kõrgus on üle 6 km.")
-elif 2 <= kõrgus <= 6:
-    print("Need on keskmised pilved, kuna kõrgus on üle 6 km.")
-else:
-    print("Need on alumised pilved, kuna kõrgus on alla 2 km.")
+# kõrgus = float(input("sisesta pilvede aluse kõrgus (km): "))
+# if kõrgus > 6:
+#     print("Need on ülemised pilved, kuna kõrgus on üle 6 km.")
+# elif 2 <= kõrgus <= 6:
+#     print("Need on keskmised pilved, kuna kõrgus on üle 6 km.")
+# else:
+#     print("Need on alumised pilved, kuna kõrgus on alla 2 km.")
 
 
 
@@ -55,11 +55,11 @@ kohad = int(input("Kohtade arv: "))
 
 bussid = inimesed // kohad
 if inimesed % kohad != 0:
-    bussid +=1
+    bussid += 1
 
 viimases_bussis = inimesed % kohad
 if viimases_bussis == 0:
     viimases_bussis = kohad
 print("busse vaja", bussid)
-print("Viimases bussis inimesi:", viimases_bussis)
+# print("Viimases bussis inimesi:", viimases_bussis)
 
