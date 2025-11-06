@@ -1,0 +1,22 @@
+import turtle
+turtle.shape("turtle")
+
+#ruut
+turtle.pensize(3)
+turtle.penup()
+turtle.pendown()
+for i in range (4):
+    turtle.fd(150)
+    turtle.lt(90)
+
+turtle.penup()
+turtle.lt(90)
+turtle.fd(65)
+turtle.rt(90)
+turtle.fd(60)
+turtle.rt(90)
+turtle.pendown()
+for i in range (4):
+    turtle.fd(150)
+    turtle.rt(90)
+turtle.done()
