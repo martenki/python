@@ -1,0 +1,74 @@
+import turtle
+import random
+
+screen = turtle.Screen()
+screen.title("Kujundite joonistamine")
+t = turtle.Turtle()
+t.speed(0)
+t.hideturtle()
+def joonista_ruut(kylg=60):
+    for _ in range(4):
+        t.forward(kylg)
+        t.right(90)
+def joonista_viisnurk(kylg=60):
+    for _ in range(5):
+        t.forward(kylg)
+        t.right(72)
+def joonista_ring(raadius=40):
+    t.circle(raadius)
+def mine_suvalisse_kohta():
+    t.penup()
+    x = random.randint(-250, 250)
+    y = random.randint(-250, 250)
+    t.goto(x, y)
+    t.pendown()
+def vali_suvaline_varv():
+    t.color(random.random(), random.random(), random.random())
+def joonista_kujund(tyyp):
+    vali_suvaline_varv()
+    if tyyp == "ruut":
+        joonista_ruut()
+    elif tyyp == "viisnurk":
+        joonista_viisnurk()
+    elif tyyp == "ring":
+        joonista_ring()
+    else:
+        pass
+while True:
+    kujund = input("Millist kujundit soovid joonistada (viisnurk, ring, ruut, suvaline)? ").strip().lower()
+    if kujund == "":
+        print("Programm lõpetatakse")
+        break
+
+    if kujund not in ["viisnurk", "ring", "ruut", "suvaline"]:
+        print("Tundmatu kujund. Proovi uuesti")
+        continue
+
+    mitu_str = input("Mitu kujundit soovid joonistada? ").strip()
+    if mitu_str == "":
+        print("Programm lõpetatakse")
+        break
+
+    try:
+        mitu = int(mitu_str)
+        if mitu <= 0:
+            print("Arv peab olema positiivne täisarv")
+            continue
+    except ValueError:
+        print("Palun sisesta korrektne täisarv")
+        continue
+    t.clear()
+    for _ in range(mitu):
+        if kujund == "suvaline":
+            tyyp = random.choice(["viisnurk", "ring", "ruut"])
+        else:
+            tyyp = kujund
+
+        mine_suvalisse_kohta()
+        t.setheading(random.randint(0, 359))
+        joonista_kujund(tyyp)
+    jatka = input("Soovid jätkata? (vajuta Enter, et lõpetada, või kirjuta midagi, et jätkata) ").strip()
+    if jatka == "":
+        print("Programm lõpetatakse")
+        break
+turtle.done()
