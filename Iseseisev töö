@@ -1,12 +1,14 @@
 import turtle
 import random
 
+# Loop ekraan ja kilponn siin
 screen = turtle.Screen()
 screen.title("Kujundite joonistamine")
 t = turtle.Turtle()
-t.speed(0)
-t.hideturtle()
+t.speed(0)        # <-- kiiruse muudmine
+t.hideturtle()    # <-- peidab kilponna
 
+# -Kujundite funktsioonid-
 def joonista_ruut(kylg=60):
     for _ in range(4):
         t.forward(kylg)
@@ -15,11 +17,12 @@ def joonista_ruut(kylg=60):
 def joonista_viisnurk(kylg=60):
     for _ in range(5):
         t.forward(kylg)
-        t.right(72)
+        t.right(72)  # <- 360 / 5
 
 def joonista_ring(raadius=40):
     t.circle(raadius)
 
+# Liigub suvalisse kohta
 def mine_suvalisse_kohta():
     t.penup()
     x = random.randint(-250, 250)
@@ -27,9 +30,11 @@ def mine_suvalisse_kohta():
     t.goto(x, y)
     t.pendown()
 
+# suvalised värvid
 def vali_suvaline_varv():
     t.color(random.random(), random.random(), random.random())
 
+# Üldine funktsioon, valib õige kujund
 def joonista_kujund(tyyp):
     vali_suvaline_varv()
     if tyyp == "ruut":
@@ -39,11 +44,15 @@ def joonista_kujund(tyyp):
     elif tyyp == "ring":
         joonista_ring()
     else:
+    # Kui läheb valesti siis lõpetab kohe
         pass
 
+# --Põhiprogramm--
 while True:
     kujund = input("Millist kujundit soovid joonistada (viisnurk, ring, ruut, suvaline)? ").strip().lower()
-    if kujund == "":
+    
+# kui kastuaja vajutba enter -> programm stop
+if kujund == "":
         print("Programm lõpetatakse")
         break
 
@@ -65,20 +74,22 @@ while True:
     except ValueError:
         print("Palun sisesta korrektne täisarv")
         continue
-    t.clear()
-    
+
+# soovi korral võib iga uue vooru jaoks ekraani puhastada
+t.clear()
+
+    # Joonistab kujund
     for _ in range(mitu):
         if kujund == "suvaline":
             tyyp = random.choice(["viisnurk", "ring", "ruut"])
-        
         else:
             tyyp = kujund
 
         mine_suvalisse_kohta()
-        t.setheading(random.randint(0, 359))
+        t.setheading(random.randint(0, 359)) # <-- juhuslik pöödenurk
         joonista_kujund(tyyp)
+    * Pärast joonistamist küsib ja jotkab
     jatka = input("Soovid jätkata? (vajuta Enter, et lõpetada, või kirjuta midagi, et jätkata) ").strip()
-    
     if jatka == "":
         print("Programm lõpetatakse")
         break
